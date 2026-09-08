@@ -1,0 +1,20 @@
+{
+  "name": "@context-router/plugin-backend",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "tsx --test test/*.test.ts"
+  },
+  "dependencies": {
+    "@backstage/backend-plugin-api": "^1.10.0",
+    "@context-router/contract": "file:../context-router-contract",
+    "express": "^4.21.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@backstage/backend-test-utils": "^1.11.6",
+    "supertest": "^7.0.0",
+    "tsx": "^4.19.0"
+  }
+}
