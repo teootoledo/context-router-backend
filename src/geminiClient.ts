@@ -6,10 +6,10 @@ export async function callGemini(opts: {
   systemPrompt: string;
   userContent: string;
 }): Promise<string> {
-  const url = `${GEMINI_ENDPOINT}?key=${opts.apiKey}`;
-  const res = await fetch(url, {
+  const res = await fetch(GEMINI_ENDPOINT, {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+    // The key goes in a header, never the URL — see the test for why.
+    headers: { 'Content-Type': 'application/json', 'x-goog-api-key': opts.apiKey },
     body: JSON.stringify({
       systemInstruction: { parts: [{ text: opts.systemPrompt }] },
       contents: [{ parts: [{ text: opts.userContent }] }],
