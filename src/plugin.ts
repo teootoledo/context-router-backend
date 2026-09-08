@@ -19,7 +19,7 @@ export const contextRouterPlugin = createBackendPlugin({
         const router = express.Router();
         router.use(express.json());
         router.get('/health', (_req, res) => res.status(200).json({ status: 'ok' }));
-        router.use(createBulkReaderRouter({ apiKey }));
+        router.use(createBulkReaderRouter({ apiKey, logger }));
         httpRouter.use(router);
         logger.info('context-router backend plugin initialized');
       },
