@@ -21,9 +21,13 @@ export const contextRouterPlugin = createBackendPlugin({
         router.get('/health', (_req, res) => res.status(200).json({ status: 'ok' }));
         router.use(createBulkReaderRouter({ apiKey, logger }));
 
-        // This endpoint is deliberately open for this slice — auth is a later plan.
-        // Without this, Backstage's default credentials barrier 401s every request,
-        // since only startTestBackend's MockHttpAuthService authenticates for free.
+        // ponytail: open endpoint, only because this slice has no auth yet. This is
+        // NOT the intended posture — ADR-0003 says per-developer token auth is the
+        // default and disabling it is the opt-in escape hatch, so the upgrade path is
+        // to make this line conditional on that config flag rather than unconditional.
+        // Do not deploy to a shared Backstage instance before then.
+        // (Without some policy here, Backstage's default credentials barrier 401s every
+        // request — only startTestBackend's MockHttpAuthService authenticates for free.)
         httpRouter.addAuthPolicy({ path: '/', allow: 'unauthenticated' });
         httpRouter.use(router);
         logger.info('context-router backend plugin initialized');
