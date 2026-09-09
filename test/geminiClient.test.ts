@@ -29,7 +29,7 @@ test('callGemini posts the system prompt and content, returns the model text', a
   });
 
   assert.equal(result, '- exports renderWidget()');
-  assert.match(capturedUrl!, /gemini-2\.5-flash/);
+  assert.match(capturedUrl!, /gemini-3\.6-flash/);
   // The credential travels as a header, never in the URL: query strings are routinely
   // captured by proxies, access logs, and tracing tools that redact headers by default.
   assert.equal(capturedHeaders['x-goog-api-key'], 'test-key');

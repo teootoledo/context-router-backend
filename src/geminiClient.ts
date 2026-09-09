@@ -1,5 +1,5 @@
 const GEMINI_ENDPOINT =
-  'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent';
+  'https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent';
 
 export async function callGemini(opts: {
   apiKey: string;
@@ -17,10 +17,12 @@ export async function callGemini(opts: {
         // Caps response size so a runaway summary can't re-inflate the caller's
         // context — the whole point of this product is to keep tokens down.
         maxOutputTokens: 2048,
-        // Gemini 2.5 Flash is a thinking model with a dynamic thinking budget by
-        // default, billed at a higher rate. This is a bullet-point summarization
-        // task with no need for extended reasoning, so disable it.
-        thinkingConfig: { thinkingBudget: 0 },
+        // Gemini 3.6 Flash is a thinking model with a dynamic thinking budget by
+        // default, billed at a higher rate, and (unlike 2.5 Flash) rejects
+        // thinkingBudget: 0 outright. This is a bullet-point summarization task
+        // with no need for extended reasoning, so pin the budget to the API's
+        // minimum instead of disabling it.
+        thinkingConfig: { thinkingBudget: 1 },
       },
     }),
     // A stalled connection would otherwise park this request (and everything
