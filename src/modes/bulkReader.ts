@@ -1,6 +1,6 @@
 import express from 'express';
 import type { LoggerService } from '@backstage/backend-plugin-api';
-import { BulkReadRequestSchema, BulkReadResponseSchema } from '@context-router/contract';
+import { BulkReadRequestSchema, BulkReadResponseSchema } from '@teootoledo/context-router-contract';
 import { callGemini } from '../geminiClient.ts';
 
 const BULK_READER_SYSTEM_PROMPT =

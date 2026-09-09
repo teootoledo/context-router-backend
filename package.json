@@ -4,8 +4,12 @@
   "description": "Backstage backend plugin that calls a worker LLM to summarize file content sent by context-router-daemon.",
   "license": "MIT",
   "type": "module",
-  "files": ["src"],
-  "publishConfig": { "access": "public" },
+  "files": [
+    "src"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/teootoledo/context-router-backend.git"
@@ -19,7 +23,7 @@
   },
   "dependencies": {
     "@backstage/backend-plugin-api": "^1.10.0",
-    "@context-router/contract": "file:../context-router-contract",
+    "@teootoledo/context-router-contract": "^0.1.2",
     "express": "^4.21.0",
     "zod": "^3.23.8"
   },
