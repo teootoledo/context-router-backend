@@ -1,6 +1,7 @@
 {
   "name": "@teootoledo/context-router-backend",
   "version": "0.1.0",
+  "engines": { "node": ">=22.13.0" },
   "description": "Backstage backend plugin that calls a worker LLM to summarize file content sent by context-router-daemon.",
   "license": "MIT",
   "type": "module",
