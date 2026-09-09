@@ -1,8 +1,19 @@
 {
-  "name": "@context-router/plugin-backend",
+  "name": "@teootoledo/context-router-backend",
   "version": "0.1.0",
-  "private": true,
+  "description": "Backstage backend plugin that calls a worker LLM to summarize file content sent by context-router-daemon.",
+  "license": "MIT",
   "type": "module",
+  "files": ["src"],
+  "publishConfig": { "access": "public" },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/teootoledo/context-router-backend.git"
+  },
+  "bugs": {
+    "url": "https://github.com/teootoledo/context-router-backend/issues"
+  },
+  "homepage": "https://github.com/teootoledo/context-router-backend#readme",
   "scripts": {
     "test": "tsx --test test/*.test.ts"
   },
